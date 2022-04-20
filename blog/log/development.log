@@ -1035,3 +1035,102 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.8ms | Allocations: 4085)
 
 
+Started GET "/articles/new" for ::1 at 2022-04-20 17:48:23 -0500
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 456)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 3424)
+Completed 200 OK in 21ms (Views: 20.2ms | Allocations: 3975)
+
+
+Started POST "/articles" for ::1 at 2022-04-20 17:48:26 -0500
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "article"=>{"title"=>"", "text"=>""}, "commit"=>"Save Article"}
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2100)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 5022)
+Completed 200 OK in 36ms (Views: 10.8ms | ActiveRecord: 8.9ms | Allocations: 10338)
+
+
+Started GET "/articles" for ::1 at 2022-04-20 17:55:04 -0500
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:11
+  Rendered articles/index.html.erb within layouts/application (Duration: 17.9ms | Allocations: 2846)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.8ms | Allocations: 6008)
+Completed 200 OK in 29ms (Views: 25.4ms | ActiveRecord: 7.0ms | Allocations: 7181)
+
+
+Started GET "/articles/new" for ::1 at 2022-04-20 17:55:05 -0500
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 13.6ms | Allocations: 3776)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 3840)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 4379)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <h1>New Article</h1>
+    2: <%= form_for :article, url: articles_path do |f| %>
+    3: 
+    4:   <% if @article.errors.any? %>
+    5:     <div id="error_explanation">
+    6:       <h2>
+    7:         <%= pluralize(@article.errors.count, "error") %>
+  
+app/views/articles/new.html.erb:4
+app/views/articles/new.html.erb:2
+Started GET "/articles/new" for ::1 at 2022-04-20 17:57:18 -0500
+Processing by ArticlesController#new as HTML
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.0ms | Allocations: 917)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: article
+Did you mean?  controller
+               action):
+  
+app/controllers/articles_controller.rb:28:in `article_params'
+app/controllers/articles_controller.rb:12:in `new'
+Started GET "/articles/new" for ::1 at 2022-04-20 17:57:47 -0500
+Processing by ArticlesController#new as HTML
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.0ms | Allocations: 639)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: article
+Did you mean?  controller
+               action):
+  
+app/controllers/articles_controller.rb:28:in `article_params'
+app/controllers/articles_controller.rb:12:in `new'
+Started GET "/articles/new" for ::1 at 2022-04-20 17:58:04 -0500
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 713)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 3689)
+Completed 200 OK in 37ms (Views: 17.6ms | ActiveRecord: 13.4ms | Allocations: 6803)
+
+
+Started POST "/articles" for ::1 at 2022-04-20 17:58:06 -0500
+Processing by ArticlesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "article"=>{"title"=>"", "text"=>""}, "commit"=>"Save Article"}
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2731)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 5648)
+Completed 200 OK in 17ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 6712)
+
+
