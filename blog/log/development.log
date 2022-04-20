@@ -1716,3 +1716,124 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.8ms | Allocations: 4566)
 
 
+Started GET "/articles" for ::1 at 2022-04-20 18:45:44 -0500
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1444)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1509)
+Completed 500 Internal Server Error in 7ms (Allocations: 2970)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Listing articles</h1>
+
+<%= link_to 'New article', new_article_path %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td><%= link_to 'Show', article_path(article) %></td>
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
+      <td><%= link_to 'Destroy', 
+              article_path(article),
+              method: :delete,
+              data { confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+</table>
+):
+1:    <h1>Listing articles</h1>
+2:    
+3:    <%= link_to 'New article', new_article_path %>
+4:    
+5:    <table>
+6:      <tr>
+7:        <th>Title</th>
+8:        <th>Text</th>
+9:      </tr>
+10:    
+11:      <% @articles.each do |article| %>
+12:        <tr>
+13:          <td><%= article.title %></td>
+14:          <td><%= article.text %></td>
+15:          <td><%= link_to 'Show', article_path(article) %></td>
+16:          <td><%= link_to 'Edit', edit_article_path(article) %></td>
+17:          <td><%= link_to 'Destroy', 
+18:                  article_path(article),
+19:                  method: :delete,
+20:                  data { confirm: 'Are you sure?'} %></td>
+21:        </tr>
+22:      <% end %>
+23:    </table>
+  
+app/views/articles/index.html.erb:20: syntax error, unexpected ':', expecting '}'
+app/views/articles/index.html.erb:20: syntax error, unexpected '}', expecting ')'
+app/views/articles/index.html.erb:22: syntax error, unexpected `end', expecting ')'
+app/views/articles/index.html.erb:25: syntax error, unexpected `end', expecting ')'
+app/views/articles/index.html.erb:20: syntax error, unexpected ':', expecting '}'
+app/views/articles/index.html.erb:20: syntax error, unexpected '}', expecting ')'
+app/views/articles/index.html.erb:22: syntax error, unexpected `end', expecting ')'
+app/views/articles/index.html.erb:25: syntax error, unexpected `end', expecting ')'
+app/views/articles/index.html.erb:20: syntax error, unexpected ':', expecting '}'
+app/views/articles/index.html.erb:20: syntax error, unexpected '}', expecting ')'
+app/views/articles/index.html.erb:22: syntax error, unexpected `end', expecting ')'
+app/views/articles/index.html.erb:25: syntax error, unexpected `end', expecting ')'
+app/views/articles/index.html.erb:20: syntax error, unexpected ':', expecting '}'
+app/views/articles/index.html.erb:20: syntax error, unexpected '}', expecting ')'
+app/views/articles/index.html.erb:22: syntax error, unexpected `end', expecting ')'
+app/views/articles/index.html.erb:25: syntax error, unexpected `end', expecting ')'
+app/views/articles/index.html.erb:20: syntax error, unexpected ':', expecting '}'
+app/views/articles/index.html.erb:20: syntax error, unexpected '}', expecting ')'
+app/views/articles/index.html.erb:22: syntax error, unexpected `end', expecting ')'
+app/views/articles/index.html.erb:25: syntax error, unexpected `end', expecting ')'
+app/views/articles/index.html.erb:20: syntax error, unexpected ':', expecting '}'
+app/views/articles/index.html.erb:20: syntax error, unexpected '}', expecting ')'
+app/views/articles/index.html.erb:22: syntax error, unexpected `end', expecting ')'
+app/views/articles/index.html.erb:25: syntax error, unexpected `end', expecting ')'
+Started GET "/articles" for ::1 at 2022-04-20 18:47:18 -0500
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:11
+  Rendered articles/index.html.erb within layouts/application (Duration: 19.2ms | Allocations: 5188)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.2ms | Allocations: 8362)
+Completed 200 OK in 30ms (Views: 28.2ms | ActiveRecord: 5.7ms | Allocations: 9513)
+
+
+Started DELETE "/articles/3" for ::1 at 2022-04-20 18:47:25 -0500
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"3"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/articles_controller.rb:41:in `destroy'
+  [1m[36mArticle Destroy (0.9ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/articles_controller.rb:41:in `destroy'
+  [1m[36mTRANSACTION (12.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/articles_controller.rb:41:in `destroy'
+Redirected to http://localhost:3000/articles
+Completed 302 Found in 26ms (ActiveRecord: 15.1ms | Allocations: 2201)
+
+
+Started GET "/articles" for ::1 at 2022-04-20 18:47:25 -0500
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:11
+  Rendered articles/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 886)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 3875)
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 0.7ms | Allocations: 4320)
+
+
